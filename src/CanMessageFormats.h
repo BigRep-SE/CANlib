@@ -940,6 +940,7 @@ struct __attribute__((packed)) CanMessageBoardStatus
 
 	uint32_t hasVin : 1,
 			 hasV12 : 1,
+			 hasV48 : 1,
 			 hasMcuTemp : 1,
 			 hasAccelerometer : 1,
 			 hasClosedLoop : 1,
@@ -958,13 +959,13 @@ struct __attribute__((packed)) CanMessageBoardStatus
 
 	void Clear() noexcept
 	{
-		hasVin = hasV12 = hasMcuTemp = hasMovementDelay = hasAccelerometer = hasClosedLoop = hasInductiveSensor = false;
+		hasVin = hasV12 = hasV48 = hasMcuTemp = hasMovementDelay = hasAccelerometer = hasClosedLoop = hasInductiveSensor = false;
 		numAnalogHandles = 0;
 	}
 
 	size_t GetAnalogHandlesOffset() const noexcept
 	{
-		const unsigned int numMinCurMaxValues = hasVin + hasV12 + hasMcuTemp;
+		const unsigned int numMinCurMaxValues = hasVin + hasV12 + hasV48 + hasMcuTemp;
 		return 2 * sizeof(uint32_t) + numMinCurMaxValues * sizeof(values[0]);
 	}
 

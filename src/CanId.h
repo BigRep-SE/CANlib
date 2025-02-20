@@ -162,6 +162,9 @@ class CanId
 
 public:
 	static constexpr CanAddress MasterAddress = 0;							// main boards (except ATE main boards) have address 0
+	static constexpr CanAddress MotorBoardBaseAddress = 10	;				// Motor boards base address.
+	static constexpr CanAddress StageBoardBaseAddress = 70;					// Stage boards base address.
+	static constexpr CanAddress SmartExtruderBaseAddress = 80;				// Extruder boards base address.
 	static constexpr CanAddress ATECMBoardFirstAddress = 90;
 	static constexpr CanAddress ATEIOBoardFirstAddress = 95;
 	static constexpr CanAddress ATECMBoardDefaultAddress = 118;
